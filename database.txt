@@ -1,0 +1,15 @@
+CREATE DATABASE cashbook;
+
+\c cashbook;
+
+CREATE TABLE records (
+id SERIAL PRIMARY KEY,
+date TIMESTAMP,
+subject TEXT,
+amount INTEGER
+);
+
+CREATE USER cashbook_user PASSWORD 'password';
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON records TO cashbook_user;
+GRANT SELECT, UPDATE ON records_id_seq TO cashbook_user;
